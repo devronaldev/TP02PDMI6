@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP02PDMI6.Page.Details"
+             Title="{Binding Title}">
+    <VerticalStackLayout>
+        <Grid Padding="20" VerticalOptions="End" HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Descrição -->
+            <Label
+                Text="Descrição: "
+                VerticalOptions="Center"
+                HorizontalOptions="Start" 
+                Grid.Column="0"/>
+            <Label 
+                x:Name="DescriptionLabel"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand" 
+                Grid.Column="1"/>
+
+            <!-- Prioridade -->
+            <Label
+                Text="Prioridade: "
+                VerticalOptions="Center"
+                HorizontalOptions="Start" 
+                Grid.Column="0"
+                Grid.Row="1"/>
+            <Label 
+                x:Name="PriorityLabel"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Grid.Column="1"
+                Grid.Row="1"/>
+
+            <!-- Data -->
+            <Label
+                Text="Criado em: "
+                VerticalOptions="Center"
+                HorizontalOptions="Start" 
+                Grid.Column="0"
+                Grid.Row="2"/>
+            <Label 
+                x:Name="DateLabel"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Grid.Column="1"
+                Grid.Row="2"/>
+        </Grid>
+
+        <Grid Padding="20" VerticalOptions="End" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Text="Editar" Clicked="OnEditButtonClicked" HorizontalOptions="Center" VerticalOptions="Center" MinimumWidthRequest="100" Margin="10" Grid.Row="0"/>
+            <Button Text="Excluir" Clicked="OnDeleteButtonClicked" HorizontalOptions="Center" VerticalOptions="Center" Margin="10" MinimumWidthRequest="100" Grid.Row="1"/>
+            <Label Text="{Binding Id}" Grid.Row="2" HorizontalOptions="Center" IsVisible="False" x:Name="Id"/>
+        </Grid>
+        
+    </VerticalStackLayout>
+
+    
+</ContentPage>
