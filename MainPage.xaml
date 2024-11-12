@@ -4,18 +4,37 @@
              x:Class="TP02PDMI6.MainPage">
 
     <ScrollView>
-        <ListView SeparatorVisibility="Default" x:Name="TaskListView" SeparatorColor="Gray"  ItemTapped="OnTaskSelected">
-            <ListView.ItemTemplate >
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Label Text="{Binding Title}"/>
-                            <Label Text="{Binding Description}"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Grid HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="420"/>
+            </Grid.ColumnDefinitions>
+            <ListView SeparatorVisibility="Default" x:Name="TaskListView" Grid.Row="1" ItemTapped="OnTaskSelected" HorizontalOptions="Center">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="Center" Margin="10" Spacing="2">
+                                <Label Text="{Binding Title}"
+                                       FontSize="Subtitle"/>
+                                
+                                <Label Text="{Binding Description}"
+                                       FontSize="Body"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Adicionar nova tarefa"
+                    Grid.Row="0"
+                    VerticalOptions="Center"
+                    Clicked="OnAddBtnClicked"/>
+        </Grid>
+        
     </ScrollView>
 
 </ContentPage>

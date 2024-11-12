@@ -66,8 +66,7 @@
 
             <Button Text="Editar" Clicked="OnEditButtonClicked" HorizontalOptions="Center" VerticalOptions="Center" MinimumWidthRequest="100" Margin="10" Grid.Row="0"/>
             <Button Text="Excluir" Clicked="OnDeleteButtonClicked" HorizontalOptions="Center" VerticalOptions="Center" Margin="10" MinimumWidthRequest="100" Grid.Row="1"/>
-            <Label Text="{Binding Id}" Grid.Row="2" HorizontalOptions="Center" IsVisible="False" x:Name="Id"/>
-        </Grid>
+            </Grid>
         
     </VerticalStackLayout>
 

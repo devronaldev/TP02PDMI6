@@ -11,23 +11,31 @@ public partial class Details : ContentPage
 
 	}
 
-    protected override void OnBindingContextChanged()
+    protected override async void OnAppearing()
     {
         base.OnBindingContextChanged();
 
-		var taskItem = BindingContext as TaskItem;
+        int id = (int)BindingContext;
+        var _dbContext = new ApplicationDbContext();
 
-		if (taskItem != null)
-		{
-			DateLabel.Text = taskItem.CreatedAt.ToString();
-			DescriptionLabel.Text = taskItem.Description.ToString();
-			PriorityLabel.Text = taskItem.Priority.ToString();
-		}
+        TaskItem? taskItem = await _dbContext.TasksItems.FirstOrDefaultAsync(t => t.Id == id);
+
+        if (taskItem == null)
+        {
+            await DisplayAlert("Erro", "Tarefa não encontrada no banco de dados", "Retornar");
+            await Navigation.PopAsync();
+        }
+
+        Title = taskItem.Title;
+        DateLabel.Text = taskItem.CreatedAt.ToString();
+        DescriptionLabel.Text = taskItem.Description.ToString();
+        PriorityLabel.Text = taskItem.Priority.ToString();
+        DateLabel.Text = taskItem.CreatedAt.ToString();
     }
 
-    private void OnEditButtonClicked(object sender, EventArgs e)
+    private async void OnEditButtonClicked(object sender, EventArgs e)
     {
-
+		await Navigation.PushAsync(new Pages.EditDetails { BindingContext = this.BindingContext });
     }
 
 	private async void OnDeleteButtonClicked(object sender, EventArgs e)
@@ -39,7 +47,8 @@ public partial class Details : ContentPage
 			try
 			{
 				var _dbContext = new ApplicationDbContext();
-				var taskToDelete = await _dbContext.TasksItems.FirstOrDefaultAsync(task => task.Id == int.Parse(Id.Text));
+				var taskItem = BindingContext as TaskItem;
+				var taskToDelete = await _dbContext.TasksItems.FirstOrDefaultAsync(task => task.Id == taskItem.Id);
 
 				if (taskToDelete == null)
 				{
@@ -49,9 +58,6 @@ public partial class Details : ContentPage
                 _dbContext.TasksItems.Remove(taskToDelete);
 				await _dbContext.SaveChangesAsync();
                 await DisplayAlert("Sucesso", $"A tarefa foi excluída", "Ok");
-
-				var mainPage = (MainPage)Application.Current.MainPage;
-				await mainPage.LoadTask(_dbContext);
             } catch (Exception ex)
 			{
                 await DisplayAlert("Erro", $"Ocorreu um erro inesperado: {ex.Message}", "Ok");

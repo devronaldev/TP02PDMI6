@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP02PDMI6.Pages.CreateTask"
+             Title="Criar Tarefa">
+    <VerticalStackLayout>
+        <Grid HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Título: "
+               Grid.Column="0"
+               Grid.Row="0"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"/>
+
+            <Label Text="Descrição: "
+               Grid.Column="0"
+               Grid.Row="1"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"/>
+
+            <Label Text="Prioridade: "
+               Grid.Column="0"
+               Grid.Row="2"
+               VerticalOptions="Center"
+               />
+
+            <Label Text="Data: "
+               Grid.Column="0"
+               Grid.Row="3"
+               VerticalOptions="Center"/>
+
+            <Entry x:Name="TitleEntry"
+               Grid.Column="1"
+               Grid.Row="0"/>
+
+            <Entry x:Name="DescriptionEntry"
+               Grid.Column="1"
+               Grid.Row="1"/>
+
+            <Picker x:Name="PriorityPicker"
+                Grid.Column="1"
+                Grid.Row="2"/>
+
+            <Grid Grid.Column="1"
+              Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DatePicker x:Name="DatePicker"
+                        Grid.Column="0"/>
+                <TimePicker x:Name="TimePicker"
+                        Grid.Column="1"/>
+            </Grid>
+
+        </Grid>
+
+        <Button Text="Salvar"
+            Clicked="OnSaveBtnClicked"
+            HorizontalOptions="Center" 
+            VerticalOptions="Center" 
+            Margin="10" 
+            MinimumWidthRequest="100"/>
+    </VerticalStackLayout>
+</ContentPage>
