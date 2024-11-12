@@ -47,8 +47,8 @@ public partial class Details : ContentPage
 			try
 			{
 				var _dbContext = new ApplicationDbContext();
-				var taskItem = BindingContext as TaskItem;
-				var taskToDelete = await _dbContext.TasksItems.FirstOrDefaultAsync(task => task.Id == taskItem.Id);
+				int id = (int)BindingContext;
+				var taskToDelete = await _dbContext.TasksItems.FirstOrDefaultAsync(task => task.Id == id);
 
 				if (taskToDelete == null)
 				{
