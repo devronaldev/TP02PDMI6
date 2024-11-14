@@ -56,7 +56,7 @@
 
   <h2>🔗 Links</h2>
   <ul>
-    <li><a href="https://github.com/devronaldev/TP02PDMI6/tree/master/TP02PDMI6">Enunciado</a></li>
+    <li><a href="https://github.com/devronaldev/TP02PDMI6/tree/master/TP02PDMI6.pdf">Enunciado</a></li>
     <li><a href="https://youtu.be/4jQDW7J1tzE">Vídeo Demonstração</a></li>
   </ul>
 </body>
