@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>TarefasApp - README</title>
 </head>
 <body>
   <h1>📝 TarefasApp - Aplicação de Lista de Tarefas</h1>
