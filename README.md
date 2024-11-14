@@ -41,7 +41,7 @@
   <ul>
     <li>💻 <strong>Linguagem:</strong> C#</li>
     <li>📱 <strong>Framework:</strong> .NET MAUI</li>
-    <li>🗃️ <strong>Banco de Dados:</strong> SQL Server</li>
+    <li>🗃️ <strong>Banco de Dados:</strong> MySQL</li>
     <li>🧩 <strong>ORM:</strong> Entity Framework</li>
   </ul>
 
@@ -56,8 +56,8 @@
 
   <h2>🔗 Links</h2>
   <ul>
-    <li><a href="">Enunciado</a></li>
-    <li><a href="">Vídeo Demonstração</a></li>
+    <li><a href="https://github.com/devronaldev/TP02PDMI6/tree/master/TP02PDMI6">Enunciado</a></li>
+    <li><a href="https://youtu.be/4jQDW7J1tzE">Vídeo Demonstração</a></li>
   </ul>
 </body>
 </html>
